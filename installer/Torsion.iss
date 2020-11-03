@@ -84,7 +84,6 @@ Root: HKCR; Subkey: "TorsionTorqueScript\shell\open\command"; ValueType: string;
 Type: files; Name: "{app}\Torsion Product Page.url"
 Type: files; Name: "{app}\Torsion Forums.url"
 Type: files; Name: "{app}\preferences.xml"
-Type: files; Name: "{app}\ignition.dat"
 
 [UninstallRun]
  
