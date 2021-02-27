@@ -95,18 +95,18 @@ bool UpdateChecker::CheckAvailable( wxString* version )
       *version = newVersion;
 
    wxString match;
-   long major, minor, build;
+   long major, minor, fix;
 
    match = expr.GetMatch( newVersion, 1 );
    match.ToLong( &major );
    match = expr.GetMatch( newVersion, 2 );
    match.ToLong( &minor );
    match = expr.GetMatch( newVersion, 3 );
-   match.ToLong( &build );
+   match.ToLong( &fix);
 
    if (  major > tsBUILDVER_MAJOR ||
          ( major == tsBUILDVER_MAJOR && minor > tsBUILDVER_MINOR ) ||
-         ( major == tsBUILDVER_MAJOR && minor == tsBUILDVER_MINOR && build > tsBUILDVER_BUILD ) )
+         ( major == tsBUILDVER_MAJOR && minor == tsBUILDVER_MINOR && fix > tsBUILDVER_FIX) )
       return true;
 
    return false;

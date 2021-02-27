@@ -36,6 +36,8 @@ public:
    virtual void OnFatalException();
    //virtual bool OnExceptionInMainLoop();
 
+   bool InitPaths();
+
 	Debugger*            GetDebugger() { return m_Debugger; }
 	AutoCompManager*     GetAutoCompManager() { return m_AutoCompManager; }
 
@@ -50,6 +52,8 @@ public:
    void OnKeyDown( wxKeyEvent& event );
 
    const wxString & GetAppPath() const { return m_AppPath; }
+   const wxString & GetAppSavePath() const { return m_AppSavePath; }
+   const wxString & GetAppPrefPath() const { return m_AppPrefPath; }
 
 protected:
 
@@ -60,6 +64,8 @@ protected:
    //UpdateChecker*    m_Checker;
 
    wxString          m_AppPath;
+   wxString          m_AppSavePath;
+   wxString          m_AppPrefPath;
 
    AppPrefs          m_Prefs;
    DocManager*       m_DocManager;

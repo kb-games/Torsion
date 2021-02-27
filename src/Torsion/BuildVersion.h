@@ -16,19 +16,20 @@
 // between tsBUILDVER_START and the current date.
 //
 
-#define tsBUILDVER_START   1170288000   // time() for February 1st, 2007 00:00
+//#define tsBUILDVER_START   1170288000   // time() for February 1st, 2007 00:00
 #define tsBUILDVER_MAJOR   1
-#define tsBUILDVER_MINOR   1
-#define tsBUILDVER_BUILD	3929
+#define tsBUILDVER_MINOR   2
+#define tsBUILDVER_FIX  1
+//#define tsBUILDVER_BUILD	3930
 #define tsBUILDVER_NAME    "Final"
-#define tsBUILDVER_RES     tsBUILDVER_MAJOR, tsBUILDVER_MINOR, 0, tsBUILDVER_BUILD
-#define tsBUILDVER_RESSTR	"1.1.0.3929"
+#define tsBUILDVER_RES     tsBUILDVER_MAJOR, tsBUILDVER_MINOR, tsBUILDVER_FIX
+#define tsBUILDVER_RESSTR	"1.2.1"
 
 
 inline wxString tsGetFullBuildString()
 {
    wxString out;
-   out << 'v' << tsBUILDVER_MAJOR << '.' << tsBUILDVER_MINOR << '.' << tsBUILDVER_BUILD << ' ' << tsBUILDVER_NAME;
+   out << 'v' << tsBUILDVER_MAJOR << '.' << tsBUILDVER_MINOR << '.' << tsBUILDVER_FIX << ' ' << tsBUILDVER_NAME;
    return out;
 }
 

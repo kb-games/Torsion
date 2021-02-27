@@ -4,7 +4,7 @@
 
 [Setup]
 AppName=Torsion
-AppVerName=Torsion 1.1.3929
+AppVerName=Torsion 1.1.2
 AppPublisher= Sickhead Games, LLC
 AppPublisherURL=http://www.sickheadgames.com/
 AppSupportURL=https://github.com/SickheadGames/Torsion/issues
@@ -71,14 +71,14 @@ Root: HKLM; Subkey: "Software\Microsoft\Windows\CurrentVersion\App Paths\torsion
 ; Associate .torsion to torsion.exe
 Root: HKCR; Subkey: ".torsion"; ValueType: string; ValueData: "TorsionProject";
 Root: HKCR; Subkey: "TorsionProject"; ValueType: string; ValueData: "Torsion Project File";
-Root: HKCR; Subkey: "TorsionProject\DefaultIcon"; ValueType: string; ValueData: "torsion.exe,1"
-Root: HKCR; Subkey: "TorsionProject\shell\open\command"; ValueType: string; ValueData: "torsion.exe ""%1"""
+Root: HKCR; Subkey: "TorsionProject\DefaultIcon"; ValueType: string; ValueData: """{app}\torsion.exe"",1"
+Root: HKCR; Subkey: "TorsionProject\shell\open\command"; ValueType: string; ValueData: """{app}\torsion.exe"" ""%1"""
 
 ; Torsion itself does the associations which point script extensions
 ; (.cs,.gui,.mis,etc...) to TorsionTorqueScript.
 Root: HKCR; Subkey: "TorsionTorqueScript"; ValueType: string; ValueData: "TorqueScript File";
-Root: HKCR; Subkey: "TorsionTorqueScript\DefaultIcon"; ValueType: string; ValueData: "torsion.exe,2"
-Root: HKCR; Subkey: "TorsionTorqueScript\shell\open\command"; ValueType: string; ValueData: "torsion.exe ""%1"""
+Root: HKCR; Subkey: "TorsionTorqueScript\DefaultIcon"; ValueType: string; ValueData: """{app}\torsion.exe"",2"
+Root: HKCR; Subkey: "TorsionTorqueScript\shell\open\command"; ValueType: string; ValueData: """{app}\torsion.exe"" ""%1"""
 
 [UninstallDelete]
 Type: files; Name: "{app}\Torsion Product Page.url"

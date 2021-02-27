@@ -1085,9 +1085,7 @@ void MainFrame::OnPreferences( wxCommandEvent& event )
 
       // Store the prefs now... so that we don't loose
       // settings if they happen to crash out.
-      wxFileName prefs( wxGetApp().GetAppPath() );
-      prefs.SetFullName( "preferences.xml" );
-      tsGetPrefs().SaveIfDirty( prefs.GetFullPath() );
+      tsGetPrefs().SaveIfDirty(wxGetApp().GetAppPrefPath());
    }
 }
 

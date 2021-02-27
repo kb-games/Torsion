@@ -107,17 +107,8 @@ bool TorsionApp::OnInit()
    SetAppName( "Torsion" );
    SetVendorName( "Sickhead Games, LLC" );
 
-   // Initialize the application path which is used
-   // in various places for access to data like prefs,
-   // export scripts, help file, etc.
-   wxFileName appPath( argv[0] );
-   if ( !appPath.IsAbsolute() )
-   {
-      wxPathList pathList;
-      pathList.AddEnvList( wxT( "PATH" ) );
-      appPath.Assign( pathList.FindAbsoluteValidPath( argv[0] ) );
-   }
-   m_AppPath = appPath.GetFullPath();
+   if (!InitPaths())
+      return false;
 
    // Parse the command line.
    wxCmdLineParser cmdLine( argc, argv );
@@ -128,9 +119,7 @@ bool TorsionApp::OnInit()
    cmdLine.Parse( false );
 
    // Load the preferences!
-   wxFileName prefs( GetAppPath() );
-   prefs.SetFullName( "preferences.xml" );
-	m_Prefs.Load( prefs.GetFullPath() );
+   m_Prefs.Load( GetAppPrefPath() );
 
    // Are we registering or unregistering extensions?
    if ( cmdLine.Found( "exts" ) )
@@ -273,6 +262,44 @@ bool TorsionApp::OnInit()
    return true;
 }
 
+bool TorsionApp::InitPaths()
+{
+   // Initialize the application path which is used
+   // in various places for access to data like prefs,
+   // export scripts, help file, etc.
+   wxFileName appPath(argv[0]);
+   if (!appPath.IsAbsolute())
+   {
+      wxPathList pathList;
+      pathList.AddEnvList(wxT("PATH"));
+      appPath.Assign(pathList.FindAbsoluteValidPath(argv[0]));
+   }
+
+   m_AppPath = appPath.GetFullPath();
+
+   wxString appData;
+   if (wxGetEnv("APPDATA", &appData))
+   {
+      wxFileName saveDir(appData + '/');
+      saveDir.AppendDir("Torsion");
+      m_AppSavePath = saveDir.GetFullPath();
+
+      if (!saveDir.DirExists())
+      {
+         if (!saveDir.Mkdir())
+            m_AppSavePath = GetAppPath();
+      }
+   }
+   else
+      m_AppSavePath = GetAppPath();
+
+   wxFileName prefs(GetAppSavePath());
+   prefs.SetFullName("preferences.xml");
+   m_AppPrefPath = prefs.GetFullPath();
+
+   return true;
+}
+
 void TorsionApp::CleanUp()
 {
    // We delete the DDE stuff at first exit
@@ -292,9 +319,7 @@ void TorsionApp::CleanUp()
    wxDELETE( m_AutoCompManager );
 
    // Save the app prefs.
-   wxFileName prefs( GetAppPath() );
-   prefs.SetFullName( "preferences.xml" );
-   m_Prefs.SaveIfDirty( prefs.GetFullPath() );
+   m_Prefs.SaveIfDirty( GetAppPrefPath() );
 
    wxApp::CleanUp();
 }
