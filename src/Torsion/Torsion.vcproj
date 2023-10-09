@@ -49,10 +49,12 @@
 				Name="VCMIDLTool"/>
 			<Tool
 				Name="VCPostBuildEventTool"/>
+
 			<Tool
 				Name="VCPreBuildEventTool"
 				Description="Updating Build Number"
 				CommandLine="UpdateBuildNumber BuildVersion.h ..\..\Installer\Torsion.iss"/>
+
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool
@@ -105,10 +107,12 @@
 				Name="VCMIDLTool"/>
 			<Tool
 				Name="VCPostBuildEventTool"/>
+
 			<Tool
 				Name="VCPreBuildEventTool"
 				Description="Updating Build Number"
 				CommandLine="UpdateBuildNumber BuildVersion.h ..\..\Installer\Torsion.iss"/>
+
 			<Tool
 				Name="VCPreLinkEventTool"/>
 			<Tool

@@ -23,7 +23,7 @@
 //#define tsBUILDVER_BUILD	3930
 #define tsBUILDVER_NAME    "Final"
 #define tsBUILDVER_RES     tsBUILDVER_MAJOR, tsBUILDVER_MINOR, tsBUILDVER_FIX
-#define tsBUILDVER_RESSTR	"1.2.1"
+#define tsBUILDVER_RESSTR	"1.2.0.19639"
 
 
 inline wxString tsGetFullBuildString()
