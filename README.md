@@ -1,8 +1,11 @@
+# 2023 Build
+This is a working build of Torsion based on the HumanGamer rework of Sickhead Games' original open source release. Solution files have been retargeted to Visual Studio 2022.
+
+Current Windows binary install file can be [downloaded here](https://github.com/kb-games/Torsion/releases/tag/v1.2.1)
+
 # Torsion
 
 Torsion is a powerful development environment for creating TorqueScript based games and mods.
-
-**WARNING:** Torsion currently needs a [new XML libary](https://github.com/SickheadGames/Torsion/issues/1) and possibly an [update of VisualStudio](https://github.com/SickheadGames/Torsion/issues/7) before it can compile and run again.
 
 ## Documentation and Help
 
